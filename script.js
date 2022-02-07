@@ -38,7 +38,7 @@ function checkMID(){
 }
 
 function clearMID(){
-    document.cookie = "MID=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+    document.cookie = "MID=;expires=Thu, 01 Jan 1970 00:00:00 UTC" + ";path=/; Domain=.stupefied-perlman-581078.netlify.app";
     location.reload();
 }
 
