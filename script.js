@@ -1,4 +1,5 @@
 function checkMID(){
+    
     var mid = "MID"; // Nome do cookie identificador da última mídia
     var currentMID;
 
@@ -24,6 +25,9 @@ function checkMID(){
             location.reload;
             console.log("Reloading Page, No MID informed");
         } else {
+            var Data = new Date();
+            var latencia;
+            var tempoDeCookie = 30;
             console.log("MID informed, creating cookie with the value: )" + currentMID);
             document.cookie = "MID=" + currentMID + "; expires=" + latencia + ";path=/; Domain=.stupefied-perlman-581078.netlify.app";           
         }
