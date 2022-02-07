@@ -50,10 +50,12 @@ function conversionTag() {
     } else {
         var sChannel = "aw"; // Nenhuma mídia paga auxiliou na jornada, padrão retorna para Awin e a checagem de interação com Awin será feita pelo cookie "_aw_sn_26905"
     }
+    
+    var orderID = Math.random();
 
     var awPixel = new Image(0, 0);
 
-    awPixel.src = "https://www.awin1.com/sread.img?tt=ns&tv=2&merchant=21319&amount=1.00&ch=" + sChannel + "&cr=BRL&parts=DEFAULT:1.00&ref=1234654987afb&testmode=0&vc=null";
+    awPixel.src = "https://www.awin1.com/sread.img?tt=ns&tv=2&merchant=21319&amount=1.00&ch=" + sChannel + "&cr=BRL&parts=DEFAULT:1.00&ref=" + orderID + "&testmode=0&vc=null";
 
     /*** Do not change ***/
     var AWIN = {};
@@ -62,7 +64,7 @@ function conversionTag() {
     /*** Set your transaction parameters ***/
     AWIN.Tracking.Sale.amount = "1.00";
     AWIN.Tracking.Sale.channel = sChannel;
-    AWIN.Tracking.Sale.orderRef = "123465494984awdawf";
+    AWIN.Tracking.Sale.orderRef = orderID;
     AWIN.Tracking.Sale.parts = "DEFAULT:1.00";
     AWIN.Tracking.Sale.currency = "BRL";
     AWIN.Tracking.Sale.voucher = "";
