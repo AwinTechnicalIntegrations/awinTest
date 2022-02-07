@@ -22,7 +22,7 @@ function checkMID(){
         currentMID = prompt("What is your MID?");
 
         if(prompt == null || prompt == ""){
-            location.reload;
+            location.reload();
             console.log("Reloading Page, No MID informed");
         } else {
             var Data = new Date();
@@ -36,8 +36,9 @@ function checkMID(){
 }
 
 function clearMID(){
+    console.log("BUTTON CLICKED");
     document.cookie = "MID" +'=; Path=/; Expires=Thu, 01 Jan 1970 00:00:01 GMT;';
-    location.reload;
+    location.reload();
 }
 
 function createAwinChannelCookie() {
