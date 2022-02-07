@@ -28,6 +28,8 @@ function checkMID(){
             var Data = new Date();
             var latencia;
             var tempoDeCookie = 30;
+            Data.setTime(Data.getTime() + (tempoDeCookie * 24 * 60 * 60 * 1000));
+            latencia = Data.toUTCString();
             console.log("MID informed, creating cookie with the value: )" + currentMID);
             document.cookie = "MID=" + currentMID + "; expires=" + latencia + ";path=/; Domain=.stupefied-perlman-581078.netlify.app";           
         }
@@ -36,7 +38,6 @@ function checkMID(){
 }
 
 function clearMID(){
-    console.log("BUTTON CLICKED");
     document.cookie = "MID" +'=; Path=/; Expires=Thu, 01 Jan 1970 00:00:01 GMT;';
     location.reload();
 }
