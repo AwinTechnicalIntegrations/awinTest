@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RTX Webshop</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js"></script>
+</head>
+
+<body>
+    <section class="sec">
+        <header>
+            <a href = "index.html"><img src = "logo.png" class = "logo"></a>
+            <h2 class = "productName">Awin Test</h2>
+        </header>
+
+        <div class="content">
+            <div class="textBox">
+                <h2>Did<b style="font-size: larger;"> it </b> fire?</h2>
+                    <p>Check in the "network" tab of the developer tools (press F12 and refresh)</p>
+                    <br>
+                <br>
+
+                <script type="text/javascript">
+                    var source = "AwinChannelCookie"; // Nome do cookie identificador da última mídia
+
+                    //Retribui o valor do cookie “origem”
+                    var _getSource = function (source) {
+                        source += "=";
+                        var aCookies = document.cookie.split(";");
+
+                        for (var i = 0; i < aCookies.length; i++) {
+                            while (aCookies[i].charAt(0) == " ") aCookies[i] = aCookies[i].substring(1);
+                            if (aCookies[i].indexOf(source) != -1) {
+                                return aCookies[i].substring(source.length, aCookies[i].length);
+                            }
+                        }
+                    };
+
+                    if (_getSource(source)) {
+                        var sChannel = _getSource(source);
+                    } else {
+                        var sChannel = "aw"; // Nenhuma mídia paga auxiliou na jornada, padrão retorna para Awin e a checagem de interação com Awin será feita pelo cookie "_aw_sn_26905"
+                    }
+
+                    /*** Do not change ***/
+                    var AWIN = {};
+                    AWIN.Tracking = {};
+                    AWIN.Tracking.Sale = {};
+                    /*** Set your transaction parameters ***/
+                    AWIN.Tracking.Sale.amount = "1.00";
+                    AWIN.Tracking.Sale.channel = sChannel; 
+                    AWIN.Tracking.Sale.orderRef = "123465494984awdawf";
+                    AWIN.Tracking.Sale.parts = "DEFAULT:1.00";
+                    AWIN.Tracking.Sale.currency = "BRL";
+                    AWIN.Tracking.Sale.voucher = "";
+                    AWIN.Tracking.Sale.test = "0";
+                </script>
+
+                <img border="0" height="0"
+                src="https://www.awin1.com/sread.img?tt=ns&tv=2&merchant=XXXXX&amount=1.00&ch=aw&parts=DEFAULT:1.00&ref=123465494984awdawf&cr=BRL&vc=&testmode=0"
+                style="display: none;" width="0">
+
+                <script defer="defer" src="https://www.dwin1.com/XXXXX.js" type="text/javascript"></script>
+
+            </div>
+            <div class="productImg">
+                <img src="awin.png" class="rtx">
+            </div>
+        </div>
+    </section>
+</body>
+
+</html>
