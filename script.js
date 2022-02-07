@@ -19,9 +19,12 @@ function checkMID(){
         currentMID = _getMID(mid);
     } else {
         currentMID = prompt("What is your MID?");
+
         if(prompt == null || prompt == ""){
             location.reload;
+            console.log("Reloading Page, No MID informed");
         } else {
+            console.log("MID informed, creating cookie with the value: )" + currentMID;
             document.cookie = "MID=" + currentMID + "; expires=" + latencia + ";path=/; Domain=.stupefied-perlman-581078.netlify.app";           
         }
     }
