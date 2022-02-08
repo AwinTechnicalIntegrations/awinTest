@@ -42,6 +42,8 @@ function getTestType(){
     var urlParams = new URLSearchParams(queryString);
     var testType;
 
+    console.log(urlParams.get("testType"));
+
     if(urlParams.get("testType") != "CodeIntegration"){
         testType = 1; 
     } else {
