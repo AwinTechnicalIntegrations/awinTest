@@ -1,5 +1,5 @@
 function checkTestType(){
-    var testType = confirm("Are you testing via GTM?");
+    var testType = confirm("Click 'OK' if you are testing a GTM integration, or click 'CANCEL' if you are testing a generic code integration");
     var testTypeName = "testType";
     
     var _getID = function (testTypeName) {
@@ -26,7 +26,7 @@ function checkTestType(){
         document.cookie = "TestType=" + testType + "; expires=" + latency + ";path=/; Domain=.stupefied-perlman-581078.netlify.app";
     } 
 }
-
+/** 
 function checkMID(){
     
     var mid = "MID"; 
@@ -63,7 +63,7 @@ function checkMID(){
     }
     return currentMID;
 }
-
+*/
 function clearMID(){
     document.cookie = "MID=;expires=Thu, 01 Jan 1970 00:00:00 UTC" + ";path=/; Domain=.stupefied-perlman-581078.netlify.app";
     location.reload();
