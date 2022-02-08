@@ -17,6 +17,15 @@
         <link rel = "stylesheet" href = "style.css">
     </head>
     <body>
+        <script>
+            window.dataLayer = window.dataLayer || [];
+            window.dataLayer.push({
+                'event': 'LandingPageReached',
+                'pageCategory': 'landindPage',
+                'visitorType' : 'testUser',
+                'testType': getTestType(),
+            });
+        </script>
         <!-- Google Tag Manager (noscript) -->
         <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-N34ZK35"
         height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
@@ -45,9 +54,9 @@
         <script>
             console.log(getTestType());
             if(getTestType() == 2){
-                console.log("Testing through GTM");
-                clearAwinCookie();
+                console.log("Testing through GTM, no Awin related tags were created through code");
             } else {
+                console.log("Testing through a generic code implementation,  Awin related tags were created!");
                 checkMID();
                 createAwinChannelCookie();
                 appendAwinMastertag();
