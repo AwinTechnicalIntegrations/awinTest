@@ -55,7 +55,7 @@
             console.log(getTestType());
             if(getTestType() == "GTM_Test"){
                 console.log("Testing through GTM, no Awin related tags were created through code");
-            } else {
+            } else if(getTestType() == "Code_Test"){
                 console.log("Testing through a generic code implementation,  Awin related tags were created!");
                 checkMID();
                 createAwinChannelCookie();
