@@ -1,123 +1,59 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <!-- Google Tag Manager -->
-    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-    })(window,document,'script','dataLayer','GTM-N34ZK35');</script>
-    <!-- End Google Tag Manager -->
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Awin Test - Success Page</title>
-    <link rel="stylesheet" href="style.css">
-    <script src="script.js"></script>
-</head>
-<body>
-    <script>
-        testTypeParam();
-        checkTestType();
-        window.dataLayer = window.dataLayer || [];
-        window.dataLayer.push({
-            'event': 'purchase',
-            'pageCategory': 'home',
-            'visitorType' : 'testUser',
-            'ecommerce': {
-                'purchase':{
-                    'id': getOrderID(),
-                    'name': 'Test Transaction',
-                    'revenue': '200.00',
-                    'coupon': 'testVoucher',
-                    'products': [{
-                        'id': '925678982567899',
-                        'sku':'987654674859650',
-                        'name': 'Test Product 1',
-                        'description': 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum placerat imperdiet sollicitudin. Nam in rhoncus magna. Etiam fringilla lacus et ultricies commodo. Nam dapibus libero eros, eu ullamcorper dolor efficitur at. Nam ut velit tempor, faucibus massa quis, aliquet urna. Ut varius diam at consectetur ornare.',
-                        'category': 'First Test Category',
-                        'quantity': '1'
-                    },{
-                        'id': '7563425324534657',
-                        'sku':'2435465542564561',
-                        'name': 'Test Product 2',
-                        'description': 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum placerat imperdiet sollicitudin. Nam in rhoncus magna. Etiam fringilla lacus et ultricies commodo. Nam dapibus libero eros, eu ullamcorper dolor efficitur at. Nam ut velit tempor, faucibus massa quis, aliquet urna. Ut varius diam at consectetur ornare.',
-                        'category': 'Second Test Category',
-                        'quantity': '2'
-                    }
-                ]
-                }
-            }
-        });
-    </script>
-    <!-- Google Tag Manager (noscript) -->
-    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-N34ZK35"
-    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-    <!-- End Google Tag Manager (noscript) -->
-    <section class="sec">
-        <header>
-            <a href = "index.html"><img src = "logo.png" class = "logo"></a>
-            <h2 class = "productName">Awin Test Purchase</h2>
-        </header>
-
-        <div class="content">
-            <div class="textBox">
-                <h2>Did<b style="font-size: larger;"> it </b> fire?</h2>
-                    <p>Check in the "network" tab of the developer tools (press F12 and refresh)</p>
-                    <br>
-                <br>
-
-                <script type="text/javascript">
+    <head>
+        <!-- Google Tag Manager -->
+        <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+        new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+        j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+        'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+        })(window,document,'script','dataLayer','GTM-N34ZK35');</script>
+        <!-- End Google Tag Manager -->
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Awin Test</title>
+        <link rel = "stylesheet" href = "style.css">
+        <script src = "script.js"></script>
+    </head>
+    <body>
+        <!-- Google Tag Manager (noscript) -->
+        <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-N34ZK35"
+        height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+        <!-- End Google Tag Manager (noscript) -->
+        <section class="sec">
+            <script>
+                getOrderID();
                 if(checkTestType() == false){
-                    var source = "AwinChannelCookie"; // Nome do cookie identificador da última mídia
-
-                    //Retribui o valor do cookie “origem”
-                    var _getSource = function (source) {
-                        source += "=";
-                        var aCookies = document.cookie.split(";");
-
-                        for (var i = 0; i < aCookies.length; i++) {
-                            while (aCookies[i].charAt(0) == " ") aCookies[i] = aCookies[i].substring(1);
-                            if (aCookies[i].indexOf(source) != -1) {
-                                return aCookies[i].substring(source.length, aCookies[i].length);
-                            }
-                        }
-                    };
-
-                    if (_getSource(source)) {
-                        var sChannel = _getSource(source);
-                    } else {
-                        var sChannel = "aw"; // Nenhuma mídia paga auxiliou na jornada, padrão retorna para Awin e a checagem de interação com Awin será feita pelo cookie "_aw_sn_26905"
-                    }
-
-                    purchaseID = getOrderID();
-
-                    alert("Your Order ID is => " + purchaseID);
-
-                    var awPixel = new Image(0, 0);
-                    awPixel.src = "https://www.awin1.com/sread.img?tt=ns&tv=2&merchant="+ checkMID() +"&amount=1.00&ch=" + sChannel + "&parts=DEFAULT:1.00&ref=" + purchaseID + "&vc=&cr=BRL&testmode=0";
-
-                    /*** Do not change ***/
-                    var AWIN = {};
-                    AWIN.Tracking = {};
-                    AWIN.Tracking.Sale = {};
-                    /*** Set your transaction parameters ***/
-                    AWIN.Tracking.Sale.amount = "1.00";
-                    AWIN.Tracking.Sale.channel = sChannel; 
-                    AWIN.Tracking.Sale.orderRef = purchaseID;
-                    AWIN.Tracking.Sale.parts = "DEFAULT:1.00";
-                    AWIN.Tracking.Sale.currency = "BRL";
-                    AWIN.Tracking.Sale.voucher = "";
-                    AWIN.Tracking.Sale.test = "0";
-                    
+                    checkMID();
+                    createAwinChannelCookie();
                     appendAwinMastertag();
+                    addTestType2();
+                } else {
+                    addTestType1();
                 }
-                </script>
-            </div>
-            <div class="productImg">
-                <img src="awin.png" class="rtx">
-            </div>
-        </div>
-    </section>
-</body>
+                window.dataLayer = window.dataLayer || [];
+                window.dataLayer.push({
+                    'pageCategory': 'home',
+                    'visitorType' : 'testUser',
+                    'orderID': getOrderID()
+                })
 
+            </script>
+            <header>
+                <a href = "index.html"><img src = "logo.png" class = "logo"></a>
+                <h2 class = "productName">Awin Test</h2>
+            </header>
+
+            <div class = "content">
+                <div class = "textBox">
+                    <h2>Let's<b style="font-size: larger;"> TEST </b> this tag</h2>
+                    <a href="success.html">To Success Page :D</a><br><br>
+
+                    <button onclick="clearMID()" class = "button button3">Update MID</button>
+                </div>
+                <div class = "productImg">
+                    <img src = "awin.png" class = "rtx">
+                </div>
+            </div>    
+        </section>         
+    </body>    
 </html>
