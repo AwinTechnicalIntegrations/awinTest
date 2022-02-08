@@ -40,10 +40,10 @@ function addTestType1(){
 function addTestType2(){
     var queryString = window.location.search;
     var urlParams = new URLSearchParams(queryString);
-    if(urlParams.get("testType") != "TagManager"){
-        _url = location.href;
-        _url += (_url.split('?')[1] ? '&':'?') + "testType=CodeIntegration";
-        location.href = _url;
+    if(urlParams.get("testType") != "CodeIntegration"){
+        _url2 = location.href;
+        _url2 += (_url2.split('?')[1] ? '&':'?') + "testType=CodeIntegration";
+        location.href = _url2;
     }   
 }
  
