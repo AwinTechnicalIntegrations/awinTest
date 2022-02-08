@@ -24,7 +24,7 @@ function checkTestType(){
         Data.setTime(Data.getTime() + (cookieLength * 24 * 60 * 60 * 1000));
         latency = Data.toUTCString();
         document.cookie = "TestType=" + testType + "; expires=" + latency + ";path=/; Domain=.stupefied-perlman-581078.netlify.app";
-
+        
         if(testType == true){
             _url = location.href;
             _url += (_url.split('?')[1] ? '&':'?') + "testType=TagManager";
@@ -35,6 +35,18 @@ function checkTestType(){
             location.href = _url2;        
         }
     } 
+}
+
+function getTestType(){
+    var queryString = window.location.search;
+    var urlParams = new URLSearchParams(queryString);
+    var testType;
+
+    if(urlParams.get("testType") != "CodeIntegration"){
+        testType = 1; 
+    } else {
+        testType = 2;
+    }
 }
 
 function checkMID(){
