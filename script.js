@@ -1,5 +1,5 @@
 function checkTestType(){
-    var testTypeName = "testType";
+    var testTypeName = "TestType";
     
     var _getID = function (testTypeName) {
         testTypeName += "=";
