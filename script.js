@@ -45,9 +45,9 @@ function getTestType(){
     console.log(urlParams.get("testType"));
 
     if(urlParams.get("testType") == "CodeIntegration"){
-        testType = 1; 
+        testType = "Code_Test"; 
     } else if(urlParams.get("testType") == "TagManager"){
-        testType = 2;
+        testType = "GTM_Test";
     }
 
     return testType;
