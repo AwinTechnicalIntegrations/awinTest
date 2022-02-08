@@ -66,6 +66,7 @@
                 <br>
 
                 <script type="text/javascript">
+                if(checkTestType() == false){
                     var source = "AwinChannelCookie"; // Nome do cookie identificador da última mídia
 
                     //Retribui o valor do cookie “origem”
@@ -108,6 +109,7 @@
                     AWIN.Tracking.Sale.test = "0";
                     
                     appendAwinMastertag();
+                }
                 </script>
             </div>
             <div class="productImg">
