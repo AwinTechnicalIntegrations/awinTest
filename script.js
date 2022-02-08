@@ -61,7 +61,6 @@ function getOrderID(){
         transactionID = _getID(orderID);
         return transactionID;
     } else {
-        transactionID = Math.f
         var Data = new Date();
         var latencia;
         var tempoDeCookie = 30;
