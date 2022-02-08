@@ -46,6 +46,7 @@
             console.log(getTestType());
             if(getTestType() == 2){
                 console.log("Testing through GTM");
+                clearAwinCookie();
             } else {
                 checkMID();
                 createAwinChannelCookie();
