@@ -24,31 +24,9 @@
         <section class="sec">
             <script>
                 getOrderID();
-                
-               /*  if(checkTestType()){
-                    console.log("SHOULD BE GTM => " + checkTestType());
-                    addTestType1();
-                } else {
-                    console.log("SHOULD BE CODE => " + checkTestType());
-                } */
-
-                /* if(checkTestType() != true){
-                    console.log("checked test type result is FALSE");
-                    checkMID();
-                    createAwinChannelCookie();
-                    appendAwinMastertag();
-                    addTestType2();
-                } else {
-                    addTestType1();
-                    console.log("checked test type result is TRUE");
+                if(!checkTestType()){
+                    console.log("FIRE AWIN TAGS THROUGH CODE");
                 }
-                window.dataLayer = window.dataLayer || [];
-                window.dataLayer.push({
-                    'pageCategory': 'home',
-                    'visitorType' : 'testUser',
-                    'orderID': getOrderID()
-                }) */
-
             </script>
             <header>
                 <a href = "index.html"><img src = "logo.png" class = "logo"></a>
