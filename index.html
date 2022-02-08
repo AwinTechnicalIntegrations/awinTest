@@ -13,13 +13,6 @@
         <title>RTX Webshop</title>
         <link rel = "stylesheet" href = "style.css">
         <script src = "script.js"></script>
-        <script>
-            window.dataLayer = window.dataLayer || [];
-            window.dataLayer.push({
-                'pageCategory': 'home',
-                'visitorType' : 'testUser'
-            })
-        </script>
     </head>
     <body>
         <!-- Google Tag Manager (noscript) -->
@@ -32,6 +25,14 @@
                 checkMID();
                 createAwinChannelCookie();
                 appendAwinMastertag();
+                
+                window.dataLayer = window.dataLayer || [];
+                window.dataLayer.push({
+                    'pageCategory': 'home',
+                    'visitorType' : 'testUser',
+                    'orderID': getOrderID();
+                })
+
             </script>
             <header>
                 <a href = "index.html"><img src = "logo.png" class = "logo"></a>
