@@ -46,7 +46,7 @@ function getTestType(){
 
     if(urlParams.get("testType") != "CodeIntegration"){
         testType = 1; 
-    } else {
+    } else if(urlParams.get("testType") != "TagManager"){
         testType = 2;
     }
 }
