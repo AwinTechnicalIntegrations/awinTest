@@ -26,6 +26,7 @@
                 getOrderID();
                 
                 console.log(checkTestType());
+
                 if(checkTestType() != true){
                     console.log("checked test type result is FALSE");
                     checkMID();
@@ -34,6 +35,7 @@
                     addTestType2();
                 } else {
                     addTestType1();
+                    console.log("checked test type result is TRUE");
                 }
                 window.dataLayer = window.dataLayer || [];
                 window.dataLayer.push({
