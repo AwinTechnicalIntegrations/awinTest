@@ -30,6 +30,7 @@ function checkTestType(){
 function testTypeParam(){
     var queryString = window.location.search;
     var urlParams = new URLSearchParams(queryString);
+    console.log("Type = " + urlParams.get("testType"));
     if(urlParams.get("testType") == null){
         if(checkTestType() == true){
             _url = location.href;
