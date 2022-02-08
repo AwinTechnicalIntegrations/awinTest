@@ -26,6 +26,18 @@ function checkTestType(){
         document.cookie = "TestType=" + testType + "; expires=" + latency + ";path=/; Domain=.stupefied-perlman-581078.netlify.app";
     } 
 }
+
+function testTypeParam(){
+    if(checkTestType() == true){
+        _url = location.href;
+        _url += (_url.split('?')[1] ? '&':'?') + "testType=TagManager";
+        return _url;
+    } else {
+        _url = location.href;
+        _url += (_url.split('?')[1] ? '&':'?') + "testType=CodeIntegration";
+        return _url;
+    }
+}
  
 function checkMID(){
     
