@@ -44,9 +44,9 @@ function getTestType(){
 
     console.log(urlParams.get("testType"));
 
-    if(urlParams.get("testType") != "CodeIntegration"){
+    if(urlParams.get("testType") == "CodeIntegration"){
         testType = 1; 
-    } else if(urlParams.get("testType") != "TagManager"){
+    } else if(urlParams.get("testType") == "TagManager"){
         testType = 2;
     }
 }
