@@ -23,9 +23,11 @@
             <script>
                 checkTestType();
                 getOrderID();
-                checkMID();
-                createAwinChannelCookie();
-                appendAwinMastertag();
+                if(checkTestType() == false){
+                    checkMID();
+                    createAwinChannelCookie();
+                    appendAwinMastertag();
+                }
                 
                 window.dataLayer = window.dataLayer || [];
                 window.dataLayer.push({
