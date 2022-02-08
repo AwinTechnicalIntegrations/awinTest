@@ -31,11 +31,11 @@ function testTypeParam(){
     if(checkTestType() == true){
         _url = location.href;
         _url += (_url.split('?')[1] ? '&':'?') + "testType=TagManager";
-        return _url;
+        location.href = _url;
     } else {
         _url = location.href;
         _url += (_url.split('?')[1] ? '&':'?') + "testType=CodeIntegration";
-        return _url;
+        location.href = _url;
     }
 }
  
