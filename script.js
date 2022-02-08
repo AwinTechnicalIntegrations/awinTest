@@ -30,7 +30,6 @@ function checkMID(){
             var tempoDeCookie = 30;
             Data.setTime(Data.getTime() + (tempoDeCookie * 24 * 60 * 60 * 1000));
             latencia = Data.toUTCString();
-            console.log("MID informed, creating cookie with the value: )" + currentMID);
             document.cookie = "MID=" + currentMID + "; expires=" + latencia + ";path=/; Domain=.stupefied-perlman-581078.netlify.app";           
         }
     }
@@ -41,6 +40,36 @@ function clearMID(){
     document.cookie = "MID=;expires=Thu, 01 Jan 1970 00:00:00 UTC" + ";path=/; Domain=.stupefied-perlman-581078.netlify.app";
     location.reload();
 }
+
+function getOrderID(){
+    var orderID = "orderID"; // Nome do cookie identificador da última mídia
+    transactionID;
+    //Retribui o valor do cookie “origem”
+    var _getID = function (orderID) {
+        orderID += "=";
+        var aCookies = document.cookie.split(";");
+
+        for (var i = 0; i < aCookies.length; i++) {
+            while (aCookies[i].charAt(0) == " ") aCookies[i] = aCookies[i].substring(1);
+            if (aCookies[i].indexOf(orderID) != -1) {
+                return aCookies[i].substring(orderID.length, aCookies[i].length);
+            }
+        }
+    };
+
+    if (_getID(orderID)) {
+        transactionID = _getID(orderID);
+        return transactionID;
+    } else {
+        var Data = new Date();
+        var latencia;
+        var tempoDeCookie = 30;
+        Data.setTime(Data.getTime() + (tempoDeCookie * 24 * 60 * 60 * 1000));
+        latencia = Data.toUTCString();
+        document.cookie = "orderID=" + transactionID + "; expires=" + latencia + ";path=/; Domain=.stupefied-perlman-581078.netlify.app";
+    }    
+}
+
 
 function createAwinChannelCookie() {
     var Data = new Date();
