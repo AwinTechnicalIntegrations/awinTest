@@ -32,14 +32,11 @@ function testTypeParam(){
     var urlParams = new URLSearchParams(queryString);
     
     if(urlParams.get("testType") == null){
-        console.log("IT IS NULL = " + urlParams.get("testType"));
         if(checkTestType() == true){
-            console.log("Check for TRUE Type = " + urlParams.get("testType"));
             _url = location.href;
             _url += (_url.split('?')[1] ? '&':'?') + "testType=TagManager";
             location.href = _url;
         } else if (checkTestType() == false){
-            console.log("Check for FALSE Type = " + urlParams.get("testType"));
             _url = location.href;
             _url += (_url.split('?')[1] ? '&':'?') + "testType=CodeIntegration";
             location.href = _url;
