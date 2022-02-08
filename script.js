@@ -39,7 +39,7 @@ function checkTestType(){
     } 
 }
 
-function callAllFunctions(){
+function fireAwinTags(){
     console.log("Creating Awin Tags");
     appendAwinMastertag();
     createAwinChannelCookie();
