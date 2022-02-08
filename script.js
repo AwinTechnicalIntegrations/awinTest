@@ -35,7 +35,7 @@ function testTypeParam(){
             _url = location.href;
             _url += (_url.split('?')[1] ? '&':'?') + "testType=TagManager";
             location.href = _url;
-        } else {
+        } else if (checkTestType() == false){
             _url = location.href;
             _url += (_url.split('?')[1] ? '&':'?') + "testType=CodeIntegration";
             location.href = _url;
