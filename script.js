@@ -15,7 +15,6 @@ function checkTestType(){
 
     if (_getID(testTypeName)) {
         testType = _getID(testTypeName);
-        console.log("MESSAGE FROM CHECK TEST TYPE => " + testType);
         return testType;
     } else {
         var testType = confirm("Click 'OK' if you are testing a GTM integration, or click 'CANCEL' if you are testing a generic code integration");
