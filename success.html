@@ -16,13 +16,6 @@
 </head>
 <body>
     <script>
-        checkTestType();
-
-        if(checkTestType() == false){
-            addTestType2();
-        } else {
-            addTestType1();
-        }
         window.dataLayer = window.dataLayer || [];
         window.dataLayer.push({
             'event': 'purchase',
@@ -116,6 +109,7 @@
                     
                     appendAwinMastertag();
                 }
+                clearOrderID();
                 </script>
             </div>
             <div class="productImg">

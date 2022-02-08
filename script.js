@@ -32,31 +32,14 @@ function checkTestType(){
         } else if (testType == false){
             _url2 = location.href;
             _url2 += (_url2.split('?')[1] ? '&':'?') + "testType=CodeIntegration";
-            location.href = _url2;           
+            location.href = _url2;
+            checkMID();
+            appendAwinMastertag();
+            createAwinChannelCookie();           
         }
     } 
 }
 
-/* function addTestType1(){
-    var queryString = window.location.search;
-    var urlParams = new URLSearchParams(queryString);
-    if(urlParams.get("testType") != "TagManager"){
-        _url = location.href;
-        _url += (_url.split('?')[1] ? '&':'?') + "testType=TagManager";
-        location.href = _url; 
-    }       
-}
-
-function addTestType2(){
-    var queryString = window.location.search;
-    var urlParams = new URLSearchParams(queryString);
-    if(urlParams.get("testType") != "CodeIntegration"){
-        _url2 = location.href;
-        _url2 += (_url2.split('?')[1] ? '&':'?') + "testType=CodeIntegration";
-        location.href = _url2;
-    }   
-} */
- 
 function checkMID(){
     
     var mid = "MID"; 
@@ -128,6 +111,9 @@ function getOrderID(){
     }    
 }
 
+function clearOrderID(){
+    document.cookie = "orderID=;expires=Thu, 01 Jan 1970 00:00:00 UTC" + ";path=/; Domain=.stupefied-perlman-581078.netlify.app";
+}
 
 function createAwinChannelCookie() {
     var Data = new Date();
