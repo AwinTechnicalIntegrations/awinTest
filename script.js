@@ -32,18 +32,11 @@ function checkTestType(){
         } else if (testType == false){
             _url2 = location.href;
             _url2 += (_url2.split('?')[1] ? '&':'?') + "testType=CodeIntegration";
-            location.href = _url2;
-            checkMID();
-            fireAwinTags();         
+            location.href = _url2;        
         }
     } 
 }
 
-function fireAwinTags(){
-    console.log("Creating Awin Tags");
-    appendAwinMastertag();
-    createAwinChannelCookie();
-}
 function checkMID(){
     
     var mid = "MID"; 

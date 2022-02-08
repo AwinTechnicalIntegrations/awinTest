@@ -41,6 +41,15 @@
                     <img src = "awin.png" class = "rtx">
                 </div>
             </div>    
-        </section>         
+        </section>   
+        <script>
+            if(checkTestType()){
+                console.log("Testing through GTM");
+            } else {
+                //checkMID();
+                createAwinChannelCookie();
+                appendAwinMastertag();
+            }
+        </script>      
     </body>    
 </html>
