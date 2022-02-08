@@ -34,12 +34,16 @@ function checkTestType(){
             _url2 += (_url2.split('?')[1] ? '&':'?') + "testType=CodeIntegration";
             location.href = _url2;
             checkMID();
-            appendAwinMastertag();
-            createAwinChannelCookie();           
+            fireAwinTags();         
         }
     } 
 }
 
+function callAllFunctions(){
+    console.log("Creating Awin Tags");
+    appendAwinMastertag();
+    createAwinChannelCookie();
+}
 function checkMID(){
     
     var mid = "MID"; 
