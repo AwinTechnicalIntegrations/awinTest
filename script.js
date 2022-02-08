@@ -1,9 +1,37 @@
+function checkTestType(){
+    var testType = confirm("Are you testing via GTM?");
+    var testTypeName = "testType";
+    
+    var _getID = function (testTypeName) {
+        testTypeName += "=";
+        var aCookies = document.cookie.split(";");
+
+        for (var i = 0; i < aCookies.length; i++) {
+            while (aCookies[i].charAt(0) == " ") aCookies[i] = aCookies[i].substring(1);
+            if (aCookies[i].indexOf(testTypeName) != -1) {
+                return aCookies[i].substring(testTypeName.length, aCookies[i].length);
+            }
+        }
+    };
+
+    if (_getID(testTypeName)) {
+        testType = _getID(testTypeName);
+        return testType;
+    } else {
+        var Data = new Date();
+        var latency;
+        var cookieLength = 30;
+        Data.setTime(Data.getTime() + (cookieLength * 24 * 60 * 60 * 1000));
+        latency = Data.toUTCString();
+        document.cookie = "TestType=" + testType + "; expires=" + latency + ";path=/; Domain=.stupefied-perlman-581078.netlify.app";
+    } 
+}
+
 function checkMID(){
     
-    var mid = "MID"; // Nome do cookie identificador da última mídia
+    var mid = "MID"; 
     var currentMID;
 
-    //Retribui o valor do cookie “origem”
     var _getMID = function (mid) {
         mid += "=";
         var aCookies = document.cookie.split(";");
@@ -26,11 +54,11 @@ function checkMID(){
             console.log("Reloading Page, No MID informed");
         } else {
             var Data = new Date();
-            var latencia;
-            var tempoDeCookie = 30;
-            Data.setTime(Data.getTime() + (tempoDeCookie * 24 * 60 * 60 * 1000));
-            latencia = Data.toUTCString();
-            document.cookie = "MID=" + currentMID + "; expires=" + latencia + ";path=/; Domain=.stupefied-perlman-581078.netlify.app";           
+            var latency;
+            var cookieLength = 30;
+            Data.setTime(Data.getTime() + (cookieLength * 24 * 60 * 60 * 1000));
+            latency = Data.toUTCString();
+            document.cookie = "MID=" + currentMID + "; expires=" + latency + ";path=/; Domain=.stupefied-perlman-581078.netlify.app";           
         }
     }
     return currentMID;
@@ -42,9 +70,9 @@ function clearMID(){
 }
 
 function getOrderID(){
-    var orderID = "orderID"; // Nome do cookie identificador da última mídia
-    var transactionID = Math.floor(Math.random() * 999999999999) + 1;;
-    //Retribui o valor do cookie “origem”
+    var orderID = "orderID"; 
+    var transactionID = Math.floor(Math.random() * 999999999999) + 1;
+
     var _getID = function (orderID) {
         orderID += "=";
         var aCookies = document.cookie.split(";");
@@ -62,35 +90,35 @@ function getOrderID(){
         return transactionID;
     } else {
         var Data = new Date();
-        var latencia;
-        var tempoDeCookie = 30;
-        Data.setTime(Data.getTime() + (tempoDeCookie * 24 * 60 * 60 * 1000));
-        latencia = Data.toUTCString();
-        document.cookie = "orderID=" + transactionID + "; expires=" + latencia + ";path=/; Domain=.stupefied-perlman-581078.netlify.app";
+        var latency;
+        var cookieLength = 30;
+        Data.setTime(Data.getTime() + (cookieLength * 24 * 60 * 60 * 1000));
+        latency = Data.toUTCString();
+        document.cookie = "orderID=" + transactionID + "; expires=" + latency + ";path=/; Domain=.stupefied-perlman-581078.netlify.app";
     }    
 }
 
 
 function createAwinChannelCookie() {
     var Data = new Date();
-    var latencia;
-    var tempoDeCookie = 30;
-    var origem;
+    var latency;
+    var cookieLength = 30;
+    var source;
     var sourceParameter = "utm_source";
     var queryString = window.location.search;
     var urlParams = new URLSearchParams(queryString);
 
-    Data.setTime(Data.getTime() + (tempoDeCookie * 24 * 60 * 60 * 1000));
-    latencia = Data.toUTCString();
+    Data.setTime(Data.getTime() + (cookieLength * 24 * 60 * 60 * 1000));
+    latency = Data.toUTCString();
 
     //Check if last click was Awin, and if not other paid medias that use "utm_source" or other parameters such as google
     if (urlParams.get(sourceParameter) != "awin" && urlParams.get(sourceParameter) != null || window.location.href.indexOf("gclid") > -1 || window.location.href.indexOf("fbclid") > -1) {
-        origem = "other";
+        source = "other";
     } else {
-        origem = "aw";
+        source = "aw";
     }
 
-    document.cookie = "AwinChannelCookie=" + origem + "; expires=" + latencia + ";path=/; Domain=.stupefied-perlman-581078.netlify.app";
+    document.cookie = "AwinChannelCookie=" + source + "; expires=" + latency + ";path=/; Domain=.stupefied-perlman-581078.netlify.app";
 }
 
 function appendAwinMastertag() {
