@@ -49,6 +49,8 @@ function getTestType(){
     } else if(urlParams.get("testType") == "TagManager"){
         testType = 2;
     }
+
+    return testType;
 }
 
 function checkMID(){
