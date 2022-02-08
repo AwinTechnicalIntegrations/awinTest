@@ -21,14 +21,13 @@
         <!-- End Google Tag Manager (noscript) -->
         <section class="sec">
             <script>
-                testTypeParam();
                 getOrderID();
                 if(checkTestType() == false){
                     checkMID();
                     createAwinChannelCookie();
                     appendAwinMastertag();
                 }
-                
+                testTypeParam();
                 window.dataLayer = window.dataLayer || [];
                 window.dataLayer.push({
                     'pageCategory': 'home',
