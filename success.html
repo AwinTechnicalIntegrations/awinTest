@@ -10,7 +10,7 @@
             'visitorType' : 'testUser',
             'ecommerce': {
                 'purchase':{
-                    'id': orderID,
+                    'id': getOrderID(),
                     'name': 'Test Transaction',
                     'revenue': '200.00',
                     'coupon': 'testVoucher',
@@ -24,8 +24,7 @@
                     }]
                 }
             }
-
-        })
+        });
     </script>
 
     <!-- Google Tag Manager -->
@@ -82,11 +81,12 @@
                         var sChannel = "aw"; // Nenhuma mídia paga auxiliou na jornada, padrão retorna para Awin e a checagem de interação com Awin será feita pelo cookie "_aw_sn_26905"
                     }
 
-                    var orderID = Math.floor(Math.random() * 9999999999) + 1;
+                    purchaseID = getOrderID();
 
-                    alert("Your Order ID is => " + orderID);
+                    alert("Your Order ID is => " + purchaseID);
+
                     var awPixel = new Image(0, 0);
-                    awPixel.src = "https://www.awin1.com/sread.img?tt=ns&tv=2&merchant="+ checkMID() +"&amount=1.00&ch=" + sChannel + "&parts=DEFAULT:1.00&ref=" + orderID + "&vc=&cr=BRL&testmode=0";
+                    awPixel.src = "https://www.awin1.com/sread.img?tt=ns&tv=2&merchant="+ checkMID() +"&amount=1.00&ch=" + sChannel + "&parts=DEFAULT:1.00&ref=" + purchaseID + "&vc=&cr=BRL&testmode=0";
 
                     /*** Do not change ***/
                     var AWIN = {};
@@ -95,7 +95,7 @@
                     /*** Set your transaction parameters ***/
                     AWIN.Tracking.Sale.amount = "1.00";
                     AWIN.Tracking.Sale.channel = sChannel; 
-                    AWIN.Tracking.Sale.orderRef = orderID;
+                    AWIN.Tracking.Sale.orderRef = purchaseID;
                     AWIN.Tracking.Sale.parts = "DEFAULT:1.00";
                     AWIN.Tracking.Sale.currency = "BRL";
                     AWIN.Tracking.Sale.voucher = "";
