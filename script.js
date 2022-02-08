@@ -28,15 +28,23 @@ function checkTestType(){
 }
 
 function addTestType1(){
-    _url = location.href;
-    _url += (_url.split('?')[1] ? '&':'?') + "testType=TagManager";
-    location.href = _url;    
+    var queryString = window.location.search;
+    var urlParams = new URLSearchParams(queryString);
+    if(urlParams.get("testType") != "TagManager"){
+        _url = location.href;
+        _url += (_url.split('?')[1] ? '&':'?') + "testType=TagManager";
+        location.href = _url; 
+    }       
 }
 
 function addTestType2(){
-    _url = location.href;
-    _url += (_url.split('?')[1] ? '&':'?') + "testType=CodeIntegration";
-    location.href = _url;
+    var queryString = window.location.search;
+    var urlParams = new URLSearchParams(queryString);
+    if(urlParams.get("testType") != "TagManager"){
+        _url = location.href;
+        _url += (_url.split('?')[1] ? '&':'?') + "testType=CodeIntegration";
+        location.href = _url;
+    }   
 }
  
 function checkMID(){
