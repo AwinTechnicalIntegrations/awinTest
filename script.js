@@ -1,4 +1,4 @@
-/**function checkMID(){
+function checkMID(){
     
     var mid = "MID"; // Nome do cookie identificador da última mídia
     var currentMID;
@@ -40,11 +40,10 @@ function clearMID(){
     document.cookie = "MID=;expires=Thu, 01 Jan 1970 00:00:00 UTC" + ";path=/; Domain=.stupefied-perlman-581078.netlify.app";
     location.reload();
 }
-**/
 
 function getOrderID(){
     var orderID = "orderID"; // Nome do cookie identificador da última mídia
-    var transactionID;
+    var transactionID = Math.floor(Math.random() * 999999999999) + 1;;
     //Retribui o valor do cookie “origem”
     var _getID = function (orderID) {
         orderID += "=";
