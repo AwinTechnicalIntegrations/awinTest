@@ -17,8 +17,9 @@ function checkTestType(){
             _url2 += (_url2.split('?')[1] ? '&':'?') + "testType=" + testType;
             location.href = _url2;        
         }
+    } else if (urlParams.get("testType") == "TagManager" || urlParams.get("testType") == "CodeIntegration"){
+        console.log("DO NOT APPEND ANYTHING");
     }
-
     
     return testType;
 }
