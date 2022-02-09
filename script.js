@@ -1,6 +1,11 @@
 function checkTestType(){
     var queryString = window.location.search;
     var urlParams = new URLSearchParams(queryString);
+    var testTypeParameterValue = urlParams.get("testType");
+    
+    if(testTypeParameterValue == null){
+        testTypeParameterValue = "No test type selected";
+    }
     console.log("checkTestType called, result is => " + urlParams.get("testType"));
 
     if(urlParams.get("testType") == null){
@@ -19,7 +24,7 @@ function checkTestType(){
         }
     }
     
-    return testType;
+    return testTypeParameterValue;
 }
 
 function checkMID(){
