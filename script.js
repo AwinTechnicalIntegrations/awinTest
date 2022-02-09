@@ -2,8 +2,8 @@ function checkTestType(){
     var queryString = window.location.search;
     var urlParams = new URLSearchParams(queryString);
     console.log("checkTestType called, result is => " + urlParams.get("testType"));
-    if(urlParams.get("testType") != "TagManager" || urlParams.get("testType") != "CodeIntegration"){
-        console.log("Entered first if");
+
+    if(urlParams.get("testType") == null){
         var confirmTestType = confirm("Click 'OK' if you are testing a GTM integration, or click 'CANCEL' if you are testing a generic code integration");
         var testType;
         if(confirmTestType == true){
@@ -17,8 +17,6 @@ function checkTestType(){
             _url2 += (_url2.split('?')[1] ? '&':'?') + "testType=" + testType;
             location.href = _url2;        
         }
-    } else if (urlParams.get("testType") == "TagManager" || urlParams.get("testType") == "CodeIntegration"){
-        console.log("DO NOT APPEND ANYTHING");
     }
     
     return testType;
