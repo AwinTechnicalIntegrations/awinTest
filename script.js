@@ -35,6 +35,14 @@ function successPageType(){
     }
 }
 
+function homePageType(){
+    if(checkTestType() == "TagManager"){
+        location.href = "https://stupefied-perlman-581078.netlify.app/index.html?testType=TagManager";
+    } else {
+        location.href = "https://stupefied-perlman-581078.netlify.app/index.html?testType=CodeIntegration";
+    }
+}
+
 function checkMID(){
     
     var mid = "MID"; 
