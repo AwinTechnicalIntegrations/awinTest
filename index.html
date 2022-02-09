@@ -53,10 +53,9 @@
             </div>    
         </section>   
         <script>
-            console.log(getTestType());
-            if(getTestType() == "GTM_Test"){
+            if(checkTestType() == "TagManager"){
                 console.log("Testing through GTM, no Awin related tags were created through code");
-            } else if(getTestType() == "Code_Test"){
+            } else if(checkTestType() == "CodeIntegration"){
                 console.log("Testing through a generic code implementation,  Awin related tags were created!");
                 checkMID();
                 createAwinChannelCookie();

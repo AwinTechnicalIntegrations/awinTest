@@ -23,7 +23,7 @@
             'event': 'purchase',
             'pageCategory': 'successPage',
             'visitorType' : 'testUser',
-            'testType': getTestType(),
+            'testType': checkTestType(),
             'ecommerce': {
                 'purchase':{
                     'id': getOrderID(),
@@ -68,8 +68,7 @@
                 <br>
 
                 <script type="text/javascript">
-                if(getTestType() == "Code_Test"){
-                    console.log("Fire Conversion Tag" + getTestType());
+                if(checkTestType() == "CodeIntegration"){
                     var source = "AwinChannelCookie"; // Nome do cookie identificador da última mídia
 
                     //Retribui o valor do cookie “origem”

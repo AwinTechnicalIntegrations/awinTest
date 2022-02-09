@@ -1,55 +1,18 @@
 function checkTestType(){
-    var testTypeName = "TestType";
-    
-    var _getID = function (testTypeName) {
-        testTypeName += "=";
-        var aCookies = document.cookie.split(";");
-
-        for (var i = 0; i < aCookies.length; i++) {
-            while (aCookies[i].charAt(0) == " ") aCookies[i] = aCookies[i].substring(1);
-            if (aCookies[i].indexOf(testTypeName) != -1) {
-                return aCookies[i].substring(testTypeName.length, aCookies[i].length);
-            }
-        }
-    };
-
-    if (_getID(testTypeName)) {
-        testType = _getID(testTypeName);
-        return testType;
-    } else {
-        var testType = confirm("Click 'OK' if you are testing a GTM integration, or click 'CANCEL' if you are testing a generic code integration");
-        var Data = new Date();
-        var latency;
-        var cookieLength = 30;
-        Data.setTime(Data.getTime() + (cookieLength * 24 * 60 * 60 * 1000));
-        latency = Data.toUTCString();
-        document.cookie = "TestType=" + testType + "; expires=" + latency + ";path=/; Domain=.stupefied-perlman-581078.netlify.app";
-        
-        if(testType == true){
-            _url = location.href;
-            _url += (_url.split('?')[1] ? '&':'?') + "testType=TagManager";
-            location.href = _url; 
-        } else if (testType == false){
-            _url2 = location.href;
-            _url2 += (_url2.split('?')[1] ? '&':'?') + "testType=CodeIntegration";
-            location.href = _url2;        
-        }
-    } 
-}
-
-function getTestType(){
-    var queryString = window.location.search;
-    var urlParams = new URLSearchParams(queryString);
+    var confirmTestType = confirm("Click 'OK' if you are testing a GTM integration, or click 'CANCEL' if you are testing a generic code integration");
     var testType;
 
-    console.log(urlParams.get("testType"));
-
-    if(urlParams.get("testType") == "CodeIntegration"){
-        testType = "Code_Test"; 
-    } else if(urlParams.get("testType") == "TagManager"){
-        testType = "GTM_Test";
+    if(confirmTestType == true){
+        testType = "TagManager";
+        _url = location.href;
+        _url += (_url.split('?')[1] ? '&':'?') + "testType=" + testType;
+        location.href = _url; 
+    } else if (confirmTestType == false){
+        testType = "CodeIntegration";
+        _url2 = location.href;
+        _url2 += (_url2.split('?')[1] ? '&':'?') + "testType=" + testType;
+        location.href = _url2;        
     }
-
     return testType;
 }
 
