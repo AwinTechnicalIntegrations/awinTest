@@ -2,7 +2,7 @@ function checkTestType(){
     var queryString = window.location.search;
     var urlParams = new URLSearchParams(queryString);
     var testTypeParameterValue = urlParams.get("testType");
-    
+
     if(testTypeParameterValue == null){
         testTypeParameterValue = "No test type selected";
     }
@@ -25,6 +25,14 @@ function checkTestType(){
     }
     
     return testTypeParameterValue;
+}
+
+function successPageType(){
+    if(checkTestType() == "TagManager"){
+        location.href = "https://stupefied-perlman-581078.netlify.app/success.html?testType=TagManager";
+    } else {
+        location.href = "https://stupefied-perlman-581078.netlify.app/success.html?testType=CodeIntegration";
+    }
 }
 
 function checkMID(){
