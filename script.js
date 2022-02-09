@@ -1,18 +1,24 @@
 function checkTestType(){
-    var confirmTestType = confirm("Click 'OK' if you are testing a GTM integration, or click 'CANCEL' if you are testing a generic code integration");
-    var testType;
+    var queryString = window.location.search;
+    var urlParams = new URLSearchParams(queryString);
 
-    if(confirmTestType == true){
-        testType = "TagManager";
-        _url = location.href;
-        _url += (_url.split('?')[1] ? '&':'?') + "testType=" + testType;
-        location.href = _url; 
-    } else if (confirmTestType == false){
-        testType = "CodeIntegration";
-        _url2 = location.href;
-        _url2 += (_url2.split('?')[1] ? '&':'?') + "testType=" + testType;
-        location.href = _url2;        
+    if(urlParams.get("testType") != "TagManager" || urlParams.get("testType") != "CodeIntegration"){
+        var confirmTestType = confirm("Click 'OK' if you are testing a GTM integration, or click 'CANCEL' if you are testing a generic code integration");
+        var testType;
+        if(confirmTestType == true){
+            testType = "TagManager";
+            _url = location.href;
+            _url += (_url.split('?')[1] ? '&':'?') + "testType=" + testType;
+            location.href = _url; 
+        } else if (confirmTestType == false){
+            testType = "CodeIntegration";
+            _url2 = location.href;
+            _url2 += (_url2.split('?')[1] ? '&':'?') + "testType=" + testType;
+            location.href = _url2;        
+        }
     }
+
+    
     return testType;
 }
 
