@@ -49,6 +49,16 @@
                 }
             }
         });
+
+
+        window.dataLayer = window.dataLayer || [];
+        window.dataLayer.push({
+            'event': 'LandingPageReached',
+            'pageCategory': 'successPage',
+            'visitorType' : 'testUser',
+            'testType': checkTestType(),
+            'path':'/br/sucess.html',
+        });
     </script>
     <!-- Google Tag Manager (noscript) -->
     <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-N34ZK35"
@@ -113,7 +123,9 @@
                     appendAwinMastertag();
                 }
                 </script>
+                
             </div>
+            
             <div class="productImg">
                 <img src="awin.png" class="rtx">
             </div>
