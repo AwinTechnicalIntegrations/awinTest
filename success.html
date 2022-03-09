@@ -1,14 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <script src="script.js"></script>
     <!-- Google Tag Manager -->
-    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-    })(window,document,'script','dataLayer','GTM-N34ZK35');
-    checkTestType();
+    <script>(function (w, d, s, l, i) {
+            w[l] = w[l] || []; w[l].push({
+                'gtm.start':
+                    new Date().getTime(), event: 'gtm.js'
+            }); var f = d.getElementsByTagName(s)[0],
+                j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : ''; j.async = true; j.src =
+                    'https://www.googletagmanager.com/gtm.js?id=' + i + dl; f.parentNode.insertBefore(j, f);
+        })(window, document, 'script', 'dataLayer', 'GTM-N34ZK35');
+        checkTestType();
     </script>
     <!-- End Google Tag Manager -->
     <meta charset="UTF-8">
@@ -16,16 +20,17 @@
     <title>Awin Test - Success Page</title>
     <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
     <script>
         window.dataLayer = window.dataLayer || [];
         window.dataLayer.push({
             'event': 'purchase',
             'pageCategory': 'successPage',
-            'visitorType' : 'testUser',
+            'visitorType': 'testUser',
             'testType': checkTestType(),
             'ecommerce': {
-                'purchase':{
+                'purchase': {
                     'id': getOrderID(),
                     'revenue': '400.00',
                     'coupon': 'testVoucher',
@@ -35,103 +40,104 @@
                         'name': 'Test Product 1',
                         'price': '100',
                         'quantity': '1',
-                        'sku':'987654674859650',
+                        'sku': '987654674859650',
                         'category': 'First Test Category',
-                        'naturalCategory': 'Test 1' 
-                    },{
+                        'naturalCategory': 'Test 1'
+                    }, {
                         'id': '7563425324534657',
                         'name': 'Test Product 2',
                         'price': '50',
                         'quantity': '2',
-                        'sku':'2435465542564561',
-                        'category': 'Second Test Category' ,
-                        'naturalCategory': 'Test Natural'                      
-                    },{
+                        'sku': '2435465542564561',
+                        'category': 'Second Test Category',
+                        'naturalCategory': 'Test Natural'
+                    }, {
                         'id': '5165496546',
                         'name': 'Test Product 3',
                         'price': '100',
                         'quantity': '2',
-                        'sku':'19519841213',
-                        'category': 'Third Test Category',
-                        'naturalCategory': 'Test 2' 
+                        'sku': '19519841213',
+                        'category': 'Third Test Category Natural',
+                        'naturalCategory': 'Natural Nootropic'
                     }
-                ]
+                    ]
                 }
             }
         });
-        
+
     </script>
     <!-- Google Tag Manager (noscript) -->
-    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-N34ZK35"
-    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-N34ZK35" height="0" width="0"
+            style="display:none;visibility:hidden"></iframe></noscript>
     <!-- End Google Tag Manager (noscript) -->
     <section class="sec">
         <header>
-            <a href = "#" onclick="homePageType()"><img src = "logo.png" class = "logo"></a>
-            <h2 class = "productName">Awin Test Purchase</h2>
+            <a href="#" onclick="homePageType()"><img src="logo.png" class="logo"></a>
+            <h2 class="productName">Awin Test Purchase</h2>
         </header>
 
         <div class="content">
             <div class="textBox">
                 <h2>Did<b style="font-size: larger;"> it </b> fire?</h2>
-                    <p>Check in the "network" tab of the developer tools (press F12 and refresh)</p>
-                    <br>
+                <p>Check in the "network" tab of the developer tools (press F12 and refresh)</p>
+                <br>
                 <br>
 
                 <script type="text/javascript">
-                if(checkTestType() == "CodeIntegration"){
-                    var source = "AwinChannelCookie"; // Nome do cookie identificador da última mídia
+                    if (checkTestType() == "CodeIntegration") {
+                        var source = "AwinChannelCookie"; // Nome do cookie identificador da última mídia
 
-                    //Retribui o valor do cookie “origem”
-                    var _getSource = function (source) {
-                        source += "=";
-                        var aCookies = document.cookie.split(";");
+                        //Retribui o valor do cookie “origem”
+                        var _getSource = function (source) {
+                            source += "=";
+                            var aCookies = document.cookie.split(";");
 
-                        for (var i = 0; i < aCookies.length; i++) {
-                            while (aCookies[i].charAt(0) == " ") aCookies[i] = aCookies[i].substring(1);
-                            if (aCookies[i].indexOf(source) != -1) {
-                                return aCookies[i].substring(source.length, aCookies[i].length);
+                            for (var i = 0; i < aCookies.length; i++) {
+                                while (aCookies[i].charAt(0) == " ") aCookies[i] = aCookies[i].substring(1);
+                                if (aCookies[i].indexOf(source) != -1) {
+                                    return aCookies[i].substring(source.length, aCookies[i].length);
+                                }
                             }
+                        };
+
+                        if (_getSource(source)) {
+                            var sChannel = _getSource(source);
+                        } else {
+                            var sChannel = "aw"; // Nenhuma mídia paga auxiliou na jornada, padrão retorna para Awin e a checagem de interação com Awin será feita pelo cookie "_aw_sn_26905"
                         }
-                    };
 
-                    if (_getSource(source)) {
-                        var sChannel = _getSource(source);
-                    } else {
-                        var sChannel = "aw"; // Nenhuma mídia paga auxiliou na jornada, padrão retorna para Awin e a checagem de interação com Awin será feita pelo cookie "_aw_sn_26905"
+                        purchaseID = getOrderID();
+
+                        alert("Your Order ID is => " + purchaseID);
+
+                        var awPixel = new Image(0, 0);
+                        awPixel.src = "https://www.awin1.com/sread.img?tt=ns&tv=2&merchant=" + checkMID() + "&amount=1.00&ch=" + sChannel + "&parts=DEFAULT:350.00&ref=" + purchaseID + "&vc=&cr=BRL&testmode=0";
+
+                        /*** Do not change ***/
+                        var AWIN = {};
+                        AWIN.Tracking = {};
+                        AWIN.Tracking.Sale = {};
+                        /*** Set your transaction parameters ***/
+                        AWIN.Tracking.Sale.amount = "1.00";
+                        AWIN.Tracking.Sale.channel = sChannel;
+                        AWIN.Tracking.Sale.orderRef = purchaseID;
+                        AWIN.Tracking.Sale.parts = "DEFAULT:350.00";
+                        AWIN.Tracking.Sale.currency = "BRL";
+                        AWIN.Tracking.Sale.voucher = "";
+                        AWIN.Tracking.Sale.test = "0";
+
+                        appendAwinMastertag();
                     }
-
-                    purchaseID = getOrderID();
-
-                    alert("Your Order ID is => " + purchaseID);
-
-                    var awPixel = new Image(0, 0);
-                    awPixel.src = "https://www.awin1.com/sread.img?tt=ns&tv=2&merchant="+ checkMID() +"&amount=1.00&ch=" + sChannel + "&parts=DEFAULT:1.00&ref=" + purchaseID + "&vc=&cr=BRL&testmode=0";
-
-                    /*** Do not change ***/
-                    var AWIN = {};
-                    AWIN.Tracking = {};
-                    AWIN.Tracking.Sale = {};
-                    /*** Set your transaction parameters ***/
-                    AWIN.Tracking.Sale.amount = "1.00";
-                    AWIN.Tracking.Sale.channel = sChannel; 
-                    AWIN.Tracking.Sale.orderRef = purchaseID;
-                    AWIN.Tracking.Sale.parts = "DEFAULT:1.00";
-                    AWIN.Tracking.Sale.currency = "BRL";
-                    AWIN.Tracking.Sale.voucher = "";
-                    AWIN.Tracking.Sale.test = "0";
-                    
-                    appendAwinMastertag();
-                }
                 </script>
-                
+
             </div>
-            
+
             <div class="productImg">
                 <img src="awin.png" class="rtx">
             </div>
         </div>
     </section>
+
 </body>
 
 </html>
