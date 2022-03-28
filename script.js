@@ -27,6 +27,12 @@ function checkTestType(){
     return testTypeParameterValue;
 }
 
+function getAWCookie(name) {
+    function escape(s) { return s.replace(/([.*+?\^$(){}|\[\]\/\\])/g, '\\$1'); }
+    var match = document.cookie.match(RegExp('(?:^|;\\s*)' + escape(name) + '=([^;]*)'));
+    return match ? match[1] : null;
+}
+
 function successPageType(){
     if(checkTestType() == "TagManager"){
         location.href = "https://stupefied-perlman-581078.netlify.app/success.html?testType=TagManager";
