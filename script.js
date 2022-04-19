@@ -136,14 +136,15 @@ function createAwinChannelCookie() {
     Data.setTime(Data.getTime() + (cookieLength * 24 * 60 * 60 * 1000));
     latency = Data.toUTCString();
 
-    //Check if last click was Awin, and if not other paid medias that use "utm_source" or other parameters such as google
-    if (urlParams.get(sourceParameter) != "awin" && urlParams.get(sourceParameter) != null || window.location.href.indexOf("gclid") > -1 || window.location.href.indexOf("fbclid") > -1) {
-        source = "other";
-    } else {
-        source = "aw";
-    }
-
-    document.cookie = "AwinChannelCookie=" + source + "; expires=" + latency + ";path=/; Domain=.stupefied-perlman-581078.netlify.app";
+    if(urlParams.get(sourceParameter) != null){
+        //Check if last click was Awin, and if not other paid medias that use "utm_source" or other parameters such as google
+        if (urlParams.get(sourceParameter) != "awin" && urlParams.get(sourceParameter) != null || window.location.href.indexOf("gclid") > -1 || window.location.href.indexOf("fbclid") > -1) {
+            source = "other";
+        } else {
+            source = "aw";
+        }
+        document.cookie = "AwinChannelCookie=" + source + "; expires=" + latency + ";path=/; Domain=.stupefied-perlman-581078.netlify.app";
+    }    
 }
 
 function appendAwinMastertag() {
