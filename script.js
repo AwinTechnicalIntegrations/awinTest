@@ -135,15 +135,16 @@ function createAwinChannelCookie() {
 
     Data.setTime(Data.getTime() + (cookieLength * 24 * 60 * 60 * 1000));
     latency = Data.toUTCString();
-    console.log("Has parameter gclid => " + window.location.href.indexOf("gclid"));
-    //Check if there was a paid media involved using utm_source, gclid or fbclid.
+
+    //Check if there was a Last Click in user journey using utm_source, gclid or fbclid.
     if(urlParams.get(sourceParameter) != null || window.location.href.indexOf("gclid") > -1 || window.location.href.indexOf("fbclid") > -1){
-        //Check if last click was Awin, and if not other paid medias that use "utm_source" or other parameters such as google
+        //Check if last click was Awin or other paid medias that use "utm_source" or other parameters such as google and facebook
         if (urlParams.get(sourceParameter) != "awin" && urlParams.get(sourceParameter) != null || window.location.href.indexOf("gclid") > -1 || window.location.href.indexOf("fbclid") > -1) {
             source = "other";
         } else {
             source = "aw";
         }
+        //Update the cookie when a paid media interacts with the user.
         document.cookie = "AwinChannelCookie=" + source + "; expires=" + latency + ";path=/; Domain=.stupefied-perlman-581078.netlify.app";
     }    
 }
