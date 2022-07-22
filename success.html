@@ -30,18 +30,9 @@
 <body>
     <script>
         window.dataLayer = window.dataLayer || [];
-            window.dataLayer.push({
-                'event': 'TEST',
-                'pageCategory': 'landindPage',
-                'visitorType' : 'testUser',
-                'testType': checkTestType(),
-            });
-
-        window.dataLayer = window.dataLayer || [];
         window.dataLayer.push({
             'event': 'purchase',
             'pageCategory': 'successPage',
-            'visitorType' : checkUserType(),
             'testType': checkTestType(),
             'ecommerce': {
                 'purchase':{
