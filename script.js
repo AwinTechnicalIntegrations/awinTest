@@ -6,7 +6,6 @@ function checkTestType() {
     if (testTypeParameterValue == null) {
         testTypeParameterValue = "No test type selected";
     }
-    console.log("checkTestType called, result is => " + urlParams.get("testType"));
 
     if (urlParams.get("testType") == null) {
         var confirmTestType = confirm("Click 'OK' if you are testing a GTM integration, or click 'CANCEL' if you are testing a generic code integration");
@@ -144,14 +143,15 @@ function createAwinChannelCookie() {
         if (queryString.includes(sourceParameter[i])) {
             sourceValue = urlParams.get(sourceParameter[i]);
             console.log("Found source parameter, value => " + sourceValue);
+            if (sourceValue == "awin" || sourceValue == null) {
+                origem = "aw";
+            } else {
+                origem = "other";
+            }
         }
     }
 
-    if (sourceValue == "awin" || sourceValue == null) {
-        origem = "aw";
-    } else {
-        origem = "other";
-    }
+    
 
     document.cookie = "AwinChannelCookie=" + origem + "; expires=" + latencia + ";path=/; Domain=.stupefied-perlman-581078.netlify.app";
 
