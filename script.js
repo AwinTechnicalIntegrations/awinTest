@@ -137,8 +137,19 @@ function createAwinChannelCookie() {
     Data.setTime(Data.getTime() + (tempoDeCookie * 24 * 60 * 60 * 1000));
     latencia = Data.toUTCString();
 
-    for (var i = 0; i < sourceParameter; i++) {
+    for (var i = 0; i < sourceParameter.length; i++) {
         console.log(queryString);
+        if (queryString.includes(sourceParameter[i])) {
+            sourceValue = urlParams.get(sourceParameter[i]);
+            console.log("Found source parameter, value => " + sourceValue);
+            if (sourceValue == "awin" || sourceValue == null) {
+                origem = "aw";
+            } else {
+                origem = "other";
+            }
+        } else {
+            console.log("No corresponding source parameter found");
+        }
     } 
 
     document.cookie = "AwinChannelCookie=" + origem + "; expires=" + latencia + ";path=/; Domain=.stupefied-perlman-581078.netlify.app";
