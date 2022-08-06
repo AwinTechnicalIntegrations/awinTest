@@ -147,7 +147,7 @@ function createAwinChannelCookie() {
         }
     }
 
-    if (sourceValue == awin || sourceValue == null) {
+    if (sourceValue == "awin" || sourceValue == null) {
         origem = "aw";
     } else {
         origem = "other";
