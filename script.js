@@ -142,7 +142,7 @@ function createAwinChannelCookie() {
         if (queryString.includes(sourceParameter[i])) {
             sourceValue = urlParams.get(sourceParameter[i]);
             console.log("Found source parameter, value => " + sourceValue);
-            if (sourceValue == "awin" || sourceValue == null) {
+            if (sourceValue == "awin" || sourceValue == null || sourceValue == "undefined") {
                 origem = "aw";
             } else {
                 origem = "other";
