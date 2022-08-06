@@ -147,6 +147,9 @@ function createAwinChannelCookie() {
             } else {
                 origem = "other";
             }
+
+            break;
+            
         } else {
             //No source parameter found
             origem = "aw"
