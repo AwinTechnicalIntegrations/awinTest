@@ -1,29 +1,29 @@
-function checkTestType(){
+function checkTestType() {
     var queryString = window.location.search;
     var urlParams = new URLSearchParams(queryString);
     var testTypeParameterValue = urlParams.get("testType");
 
-    if(testTypeParameterValue == null){
+    if (testTypeParameterValue == null) {
         testTypeParameterValue = "No test type selected";
     }
     console.log("checkTestType called, result is => " + urlParams.get("testType"));
 
-    if(urlParams.get("testType") == null){
+    if (urlParams.get("testType") == null) {
         var confirmTestType = confirm("Click 'OK' if you are testing a GTM integration, or click 'CANCEL' if you are testing a generic code integration");
         var testType;
-        if(confirmTestType == true){
+        if (confirmTestType == true) {
             testType = "TagManager";
             _url = location.href;
-            _url += (_url.split('?')[1] ? '&':'?') + "testType=" + testType;
-            location.href = _url; 
-        } else if (confirmTestType == false){
+            _url += (_url.split('?')[1] ? '&' : '?') + "testType=" + testType;
+            location.href = _url;
+        } else if (confirmTestType == false) {
             testType = "CodeIntegration";
             _url2 = location.href;
-            _url2 += (_url2.split('?')[1] ? '&':'?') + "testType=" + testType;
-            location.href = _url2;        
+            _url2 += (_url2.split('?')[1] ? '&' : '?') + "testType=" + testType;
+            location.href = _url2;
         }
     }
-    
+
     return testTypeParameterValue;
 }
 
@@ -33,25 +33,25 @@ function getAWCookie(name) {
     return match ? match[1] : null;
 }
 
-function successPageType(){
-    if(checkTestType() == "TagManager"){
+function successPageType() {
+    if (checkTestType() == "TagManager") {
         location.href = "https://stupefied-perlman-581078.netlify.app/success.html?testType=TagManager";
     } else {
         location.href = "https://stupefied-perlman-581078.netlify.app/success.html?testType=CodeIntegration";
     }
 }
 
-function homePageType(){
-    if(checkTestType() == "TagManager"){
+function homePageType() {
+    if (checkTestType() == "TagManager") {
         location.href = "https://stupefied-perlman-581078.netlify.app/index.html?testType=TagManager";
     } else {
         location.href = "https://stupefied-perlman-581078.netlify.app/index.html?testType=CodeIntegration";
     }
 }
 
-function checkMID(){
-    
-    var mid = "MID"; 
+function checkMID() {
+
+    var mid = "MID";
     var currentMID;
 
     var _getMID = function (mid) {
@@ -71,7 +71,7 @@ function checkMID(){
     } else {
         currentMID = prompt("What is your MID?");
 
-        if(prompt == null || prompt == ""){
+        if (prompt == null || prompt == "") {
             location.reload();
             console.log("Reloading Page, No MID informed");
         } else {
@@ -80,19 +80,19 @@ function checkMID(){
             var cookieLength = 30;
             Data.setTime(Data.getTime() + (cookieLength * 24 * 60 * 60 * 1000));
             latency = Data.toUTCString();
-            document.cookie = "MID=" + currentMID + "; expires=" + latency + ";path=/; Domain=.stupefied-perlman-581078.netlify.app";           
+            document.cookie = "MID=" + currentMID + "; expires=" + latency + ";path=/; Domain=.stupefied-perlman-581078.netlify.app";
         }
     }
     return currentMID;
 }
 
-function clearMID(){
+function clearMID() {
     document.cookie = "MID=;expires=Thu, 01 Jan 1970 00:00:00 UTC" + ";path=/; Domain=.stupefied-perlman-581078.netlify.app";
     location.reload();
 }
 
-function getOrderID(){
-    var orderID = "orderID"; 
+function getOrderID() {
+    var orderID = "orderID";
     var transactionID = Math.floor(Math.random() * 999999999999) + 1;
 
     var _getID = function (orderID) {
@@ -117,14 +117,47 @@ function getOrderID(){
         Data.setTime(Data.getTime() + (cookieLength * 24 * 60 * 60 * 1000));
         latency = Data.toUTCString();
         document.cookie = "orderID=" + transactionID + "; expires=" + latency + ";path=/; Domain=.stupefied-perlman-581078.netlify.app";
-    }    
+    }
 }
 
-function clearOrderID(){
+function clearOrderID() {
     document.cookie = "orderID=;expires=Thu, 01 Jan 1970 00:00:00 UTC" + ";path=/; Domain=.stupefied-perlman-581078.netlify.app";
 }
 
 function createAwinChannelCookie() {
+
+    var Data = new Date();
+    var latencia;
+    //TEMPO DE COOKIE EM DIAS, DEVE SER O MESMO QUE ESTIPULADO PELO CONTRATO
+    var tempoDeCookie = 30;
+    var origem;
+    var sourceParameter = ["utm_source", "gclid"];
+    var queryString = window.location.search;
+    var urlParams = new URLSearchParams(queryString);
+    var sourceValue;
+
+    Data.setTime(Data.getTime() + (tempoDeCookie * 24 * 60 * 60 * 1000));
+    latencia = Data.toUTCString();
+
+    for (var i = 0; i < sourceParameter; i++) {
+        console.log(queryString);
+        if (queryString.includes(sourceParameter[i])) {
+            sourceValue = urlParams.get(sourceParameter[i]);
+            console.log("Found source parameter, value => " + sourceValue);
+        }
+    }
+
+    if (sourceValue == awin || sourceValue == null) {
+        origem = "aw";
+    } else {
+        origem = "other";
+    }
+
+    document.cookie = "AwinChannelCookie=" + origem + "; expires=" + latencia + ";path=/; Domain=.stupefied-perlman-581078.netlify.app";
+
+}
+
+/* function createAwinChannelCookie() {
     var Data = new Date();
     var latency;
     var cookieLength = 30;
@@ -147,7 +180,7 @@ function createAwinChannelCookie() {
         //Update the cookie when a paid media interacts with the user.
         document.cookie = "AwinChannelCookie=" + source + "; expires=" + latency + ";path=/; Domain=.stupefied-perlman-581078.netlify.app";
     }    
-}
+} */
 
 function appendAwinMastertag() {
     var awMastertag = document.createElement("script");
