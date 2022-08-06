@@ -149,7 +149,7 @@ function createAwinChannelCookie() {
             }
         } else {
             //No source parameter found
-            sourceValue = "awin"
+            origem = "aw"
         }
     } 
 
