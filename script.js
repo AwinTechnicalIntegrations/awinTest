@@ -148,6 +148,8 @@ function createAwinChannelCookie() {
             } else {
                 origem = "other";
             }
+        } else {
+            console.log("No corresponding source parameter found");
         }
     }
 
