@@ -138,7 +138,6 @@ function createAwinChannelCookie() {
     latencia = Data.toUTCString();
 
     for (var i = 0; i < sourceParameter.length; i++) {
-        console.log(queryString);
         if (queryString.includes(sourceParameter[i])) {
             sourceValue = urlParams.get(sourceParameter[i]);
             console.log("Found source parameter, value => " + sourceValue);
@@ -149,7 +148,7 @@ function createAwinChannelCookie() {
             }
 
             break;
-            
+
         } else {
             //No source parameter found
             origem = "aw"
