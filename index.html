@@ -35,7 +35,7 @@
                 'event': 'LandingPageReached',
                 'pageCategory': 'landindPage',
                 'visitorType' : 'testUser',
-                'testType': checkTestType(),
+                //'testType': checkTestType(),
             });
         </script>
         <!-- Google Tag Manager (noscript) -->
@@ -65,13 +65,13 @@
             </div>    
         </section>   
         <script>
-            if(checkTestType() == "TagManager"){
+            /* if(checkTestType() == "TagManager"){
                 console.log("Testing through GTM, no Awin related tags were created through code");
             } else if(checkTestType() == "CodeIntegration"){
                 checkMID();
                 createAwinChannelCookie();
                 appendAwinMastertag();
-            }
+            } */
         </script>      
     </body>    
 </html>
