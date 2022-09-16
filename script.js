@@ -155,7 +155,7 @@ function createAwinChannelCookie() {
         }
     } 
 
-    document.cookie = "AwinChannelCookie=" + origem + "; expires=" + latencia + ";path=/; Domain=.stupefied-perlman-581078.netlify.app";
+    document.cookie = "AwinChannelCookieCode=" + origem + "; expires=" + latencia + ";path=/; Domain=.stupefied-perlman-581078.netlify.app";
 
 }
 
