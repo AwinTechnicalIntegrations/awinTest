@@ -1,5 +1,5 @@
 function checkTestType() {
-    var queryString = window.location.search;
+    /* var queryString = window.location.search;
     var urlParams = new URLSearchParams(queryString);
     var testTypeParameterValue = urlParams.get("testType");
 
@@ -23,7 +23,7 @@ function checkTestType() {
         }
     }
 
-    return testTypeParameterValue;
+    return testTypeParameterValue; */
 }
 
 function getAWCookie(name) {
