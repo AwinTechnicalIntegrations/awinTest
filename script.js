@@ -1,5 +1,5 @@
 function checkTestType() {
-    /* var queryString = window.location.search;
+    var queryString = window.location.search;
     var urlParams = new URLSearchParams(queryString);
     var testTypeParameterValue = urlParams.get("testType");
 
@@ -23,7 +23,7 @@ function checkTestType() {
         }
     }
 
-    return testTypeParameterValue; */
+    return testTypeParameterValue;
 }
 
 function getAWCookie(name) {
@@ -158,7 +158,7 @@ function createAwinChannelCookie() {
 
 }
 
-/* function createAwinChannelCookie() {
+function createAwinChannelCookie() {
     var Data = new Date();
     var latency;
     var cookieLength = 30;
@@ -179,9 +179,9 @@ function createAwinChannelCookie() {
             source = "aw";
         }
         //Update the cookie when a paid media interacts with the user.
-        document.cookie = "AwinChannelCookie=" + source + "; expires=" + latency + ";path=/; Domain=.stupefied-perlman-581078.netlify.app";
+        document.cookie = "AwinChannelCookieCODE=" + source + "; expires=" + latency + ";path=/; Domain=.stupefied-perlman-581078.netlify.app";
     }    
-} */
+}
 
 function appendAwinMastertag() {
     var awMastertag = document.createElement("script");
