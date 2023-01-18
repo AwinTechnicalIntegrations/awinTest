@@ -106,9 +106,9 @@
 
                 <script type="text/javascript">
                 if(checkTestType() == "CodeIntegration"){
-                    var source = "AwinChannelCookie"; // Nome do cookie identificador da última mídia
+                    var source = "AwinChannelCookieCODE"; // Awin Channel Cookie name
 
-                    //Retribui o valor do cookie “origem”
+                    //Retrieve the cookie
                     var _getSource = function (source) {
                         source += "=";
                         var aCookies = document.cookie.split(";");
@@ -124,7 +124,7 @@
                     if (_getSource(source)) {
                         var sChannel = _getSource(source);
                     } else {
-                        var sChannel = "aw"; // Nenhuma mídia paga auxiliou na jornada, padrão retorna para Awin e a checagem de interação com Awin será feita pelo cookie "_aw_sn_26905"
+                        var sChannel = "aw"; //No media interacted, set "aw" by default. Tracking confirmation will be done via the first party cookie or voucher code attribution
                     }
 
                     purchaseID = getOrderID();

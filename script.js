@@ -154,11 +154,11 @@ function createAwinChannelCookie() {
         }
     } 
 
-    document.cookie = "AwinChannelCookie=" + origem + "; expires=" + latencia + ";path=/; Domain=.stupefied-perlman-581078.netlify.app";
+    document.cookie = "AwinChannelCookieCODE=" + origem + "; expires=" + latencia + ";path=/; Domain=.stupefied-perlman-581078.netlify.app";
 
 }
 
-function createAwinChannelCookie() {
+/* function createAwinChannelCookie() {
     var Data = new Date();
     var latency;
     var cookieLength = 30;
@@ -181,7 +181,7 @@ function createAwinChannelCookie() {
         //Update the cookie when a paid media interacts with the user.
         document.cookie = "AwinChannelCookieCODE=" + source + "; expires=" + latency + ";path=/; Domain=.stupefied-perlman-581078.netlify.app";
     }    
-}
+} */
 
 function appendAwinMastertag() {
     var awMastertag = document.createElement("script");
