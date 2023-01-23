@@ -103,8 +103,13 @@
                     <p>Check in the "network" tab of the developer tools (press F12 and refresh)</p>
                     <br>
                 <br>
+                <div>
+                    <p>The total amount is:</p><br>
+                    <p id="orderIDOutput"></p>
+                </div>
 
                 <script type="text/javascript">
+                document.getElementById('orderIDOutput').innerHTML = getOrderID();
                 if(checkTestType() == "CodeIntegration"){
                     var source = "AwinChannelCookieCODE"; // Awin Channel Cookie name
 
