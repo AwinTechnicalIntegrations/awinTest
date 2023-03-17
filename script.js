@@ -139,9 +139,8 @@ function createAwinChannelCookie() {
     latency = Data.toUTCString();
  
     if(window.location.href.indexOf("awaid") > -1){
-        origin = aw; 
+        origin = "aw"; 
     } else {
- 
       for (var i = 0; i < sourceParameter.length; i++) {
         if (queryString.includes(sourceParameter[i])) {
             sourceValue = urlParams.get(sourceParameter[i]);
