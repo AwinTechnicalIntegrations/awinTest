@@ -126,35 +126,41 @@ function clearOrderID() {
 function createAwinChannelCookie() {
 
     var Data = new Date();
-    var latencia;
-    var tempoDeCookie = 30;
-    var origem;
-    var sourceParameter = ["utm_source", "gclid"];
+    var latency; 
+    var cookieLength = 30; // Cookie length in days;
+    var origin;
+    var sourceParameter = ["utm_source", "gclid"]; // The parameters used by paid medias to determine the origin of the click
     var queryString = window.location.search;
     var urlParams = new URLSearchParams(queryString);
     var sourceValue;
-
-    Data.setTime(Data.getTime() + (tempoDeCookie * 24 * 60 * 60 * 1000));
-    latencia = Data.toUTCString();
-
-    for (var i = 0; i < sourceParameter.length; i++) {
+    var domain = ".stupefied-perlman-581078.netlify.app"; // UPDATE TO YOUR TOP LEVEL DOMAIN
+ 
+    Data.setTime(Data.getTime() + (cookieLength * 24 * 60 * 60 * 1000));
+    latency = Data.toUTCString();
+ 
+    if(window.location.href.indexOf("awaid") > -1){
+        origin = aw; 
+    } else {
+ 
+      for (var i = 0; i < sourceParameter.length; i++) {
         if (queryString.includes(sourceParameter[i])) {
             sourceValue = urlParams.get(sourceParameter[i]);
             if (sourceValue == "awin" || sourceValue == null || sourceValue == "undefined") {
-                origem = "aw";
+                origin = "aw";
             } else {
-                origem = "other";
+                origin = "other";
             }
-
+ 
             break;
-
+ 
         } else {
             //No source parameter found
-            origem = "aw"
+            origin = "aw"
         }
-    } 
-
-    document.cookie = "AwinChannelCookieCODE=" + origem + "; expires=" + latencia + ";path=/; Domain=.stupefied-perlman-581078.netlify.app";
+      }
+    }
+ 
+    document.cookie = "AwinChannelCookieCODE=" + origin + "; expires=" + latency + ";path=/; Domain=" + domain; 
 
 }
 
