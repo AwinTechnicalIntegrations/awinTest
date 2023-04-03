@@ -13,7 +13,7 @@ function checkTestType() {
         if (confirmTestType == true) {
             testType = "TagManager";
             _url = location.href;
-            _url += (_url.split('?')[1] ? '&' : '?') + "testType=" + testType + "&utm_source=awin";
+            _url += (_url.split('?')[1] ? '&' : '?') + "testType=" + testType;
             location.href = _url;
         } else if (confirmTestType == false) {
             testType = "CodeIntegration";
