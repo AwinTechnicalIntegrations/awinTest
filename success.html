@@ -70,6 +70,14 @@
                 }
             }
         });
+
+        window.dataLayer = window.dataLayer || [];
+        window.dataLayer.push({
+            'event': 'pageAction',
+            'pageCategory': 'successPage',
+            'testType': checkTestType(),
+            'testParameter': "123"
+        });
     </script>
     <!-- Google Tag Manager (noscript) -->
     <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-N34ZK35"
