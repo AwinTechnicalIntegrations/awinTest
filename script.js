@@ -119,6 +119,8 @@ function getOrderID() {
     }
 }
 
+
+
 function clearOrderID() {
     document.cookie = "orderID=;expires=Thu, 01 Jan 1970 00:00:00 UTC" + ";path=/; Domain=.awin-integrationstestsite.netlify.app";
 }
@@ -194,4 +196,6 @@ function appendAwinMastertag() {
     awMastertag.src = "https://www.dwin1.com/" + checkMID() + ".js";
     awMastertag.type = "text/javascript";
     document.getElementsByTagName("body")[0].appendChild(awMastertag);
+
+    
 }
