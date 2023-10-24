@@ -196,7 +196,5 @@ function appendAwinMastertag() {
     awMastertag.setAttribute("defer", "defer");
     awMastertag.src = "https://www.dwin1.com/" + checkMID() + ".js";
     awMastertag.type = "text/javascript";
-    document.getElementsByTagName("body")[0].appendChild(awMastertag);
-
-    
+    document.getElementsByTagName("body")[0].appendChild(awMastertag);    
 }
