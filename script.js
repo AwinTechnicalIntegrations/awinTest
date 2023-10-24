@@ -139,30 +139,31 @@ function createAwinChannelCookie() {
  
     Data.setTime(Data.getTime() + (cookieLength * 24 * 60 * 60 * 1000));
     latency = Data.toUTCString();
- 
-    if(window.location.href.indexOf("awaid") > -1){
-        origin = "aw"; 
-    } else {
-      for (var i = 0; i < sourceParameter.length; i++) {
-        if (queryString.includes(sourceParameter[i])) {
-            sourceValue = urlParams.get(sourceParameter[i]);
-            if (sourceValue == "awin" || sourceValue == null || sourceValue == "undefined") {
-                origin = "aw";
-            } else {
-                origin = "other";
-            }
- 
-            break;
- 
-        } else {
-            //No source parameter found
-            origin = "aw"
-        }
-      }
-    }
- 
-    document.cookie = "AwinChannelCookieCODE=" + origin + "; expires=" + latency + ";path=/; Domain=" + domain; 
 
+    if(!document.referrer.includes(window.location.hostname)){
+        if(window.location.href.indexOf("awaid") > -1){
+            origin = "aw"; 
+        } else {
+          for (var i = 0; i < sourceParameter.length; i++) {
+            if (queryString.includes(sourceParameter[i])) {
+                sourceValue = urlParams.get(sourceParameter[i]);
+                if (sourceValue == "awin" || sourceValue == null || sourceValue == "undefined") {
+                    origin = "aw";
+                } else {
+                    origin = "other";
+                }
+     
+                break;
+     
+            } else {
+                //No source parameter found
+                origin = "aw"
+            }
+          }
+        }
+     
+        document.cookie = "AwinChannelCookieCODE=" + origin + "; expires=" + latency + ";path=/; Domain=" + domain; 
+    }
 }
 
 /* function createAwinChannelCookie() {

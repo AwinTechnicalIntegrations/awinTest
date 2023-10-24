@@ -70,6 +70,9 @@
             } else if(checkTestType() == "CodeIntegration"){
                 checkMID();
                 createAwinChannelCookie();
+                var AWIN = AWIN || {};
+                AWIN.Tracking = AWIN.Tracking || {};
+                AWIN.Tracking.AdvertiserConsent = false;
                 appendAwinMastertag();
             }
         </script>      
