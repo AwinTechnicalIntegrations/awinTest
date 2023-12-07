@@ -10,7 +10,6 @@
         j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
         })(window,document,'script','dataLayer','GTM-N34ZK35');
-        checkTestType();
         clearOrderID();
         </script>
         <!-- End Google Tag Manager -->
@@ -28,7 +27,6 @@
                 'path':'/br/',
                 'pageCategory': 'landindPage',
                 'visitorType' : 'testUser',
-                'testType': checkTestType(),
             });
         </script>
         <!-- Google Tag Manager (noscript) -->
@@ -49,7 +47,6 @@
                     <h2>Let's<b style="font-size: larger;"> TEST </b> this tag</h2>
 
                     <button onclick="successPageType()" class = "button button1">To the success page! :D</button>
-
                     <button onclick="clearMID()" class = "button button2">Update MID</button>
                 </div>
                 <div class = "productImg">
@@ -57,16 +54,6 @@
                     <a href="https://test.com" download target = "_blank" rel = "noreferrer" title = "Conditions particulières de vente">testeValue123</a>
                 </div>
             </div>    
-        </section>   
-        <script>
-            if(checkTestType() == "TagManager"){
-                console.log("Testing through GTM, no Awin related tags were created through code");
-            } else if(checkTestType() == "CodeIntegration"){
-                console.log("Testing through a generic code implementation,  Awin related tags were created!");
-                checkMID();
-                createAwinChannelCookie();
-                appendAwinMastertag();
-            }
-        </script>      
+        </section>        
     </body>    
 </html>

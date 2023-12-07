@@ -14,7 +14,6 @@
                 j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : ''; j.async = true; j.src =
                     'https://www.googletagmanager.com/gtm.js?id=' + i + dl; f.parentNode.insertBefore(j, f);
         })(window, document, 'script', 'dataLayer', 'GTM-N34ZK35');
-        checkTestType();
     </script>
     <!-- End Google Tag Manager -->
     <meta charset="UTF-8">
@@ -30,7 +29,6 @@
             'event': 'purchase',
             'pageCategory': 'successPage',
             'visitorType': 'New User',
-            'testType': checkTestType(),
             'ecommerce': {
                 'purchase': {
                     'id': getOrderID(),
@@ -87,54 +85,6 @@
                 <p>Check in the "network" tab of the developer tools (press F12 and refresh)</p>
                 <br>
                 <br>
-
-                <script type="text/javascript">
-                    if (checkTestType() == "CodeIntegration") {
-                        var source = "AwinChannelCookie"; // Nome do cookie identificador da última mídia
-
-                        //Retribui o valor do cookie “origem”
-                        var _getSource = function (source) {
-                            source += "=";
-                            var aCookies = document.cookie.split(";");
-
-                            for (var i = 0; i < aCookies.length; i++) {
-                                while (aCookies[i].charAt(0) == " ") aCookies[i] = aCookies[i].substring(1);
-                                if (aCookies[i].indexOf(source) != -1) {
-                                    return aCookies[i].substring(source.length, aCookies[i].length);
-                                }
-                            }
-                        };
-
-                        if (_getSource(source)) {
-                            var sChannel = _getSource(source);
-                        } else {
-                            var sChannel = "aw"; // Nenhuma mídia paga auxiliou na jornada, padrão retorna para Awin e a checagem de interação com Awin será feita pelo cookie "_aw_sn_26905"
-                        }
-
-                        purchaseID = getOrderID();
-
-                        alert("Your Order ID is => " + purchaseID);
-
-                        var awPixel = new Image(0, 0);
-                        awPixel.src = "https://www.awin1.com/sread.img?tt=ns&tv=2&merchant=" + checkMID() + "&amount=1.00&ch=" + sChannel + "&parts=DEFAULT:350.00&ref=" + purchaseID + "&vc=&cr=BRL&testmode=0";
-
-                        /*** Do not change ***/
-                        var AWIN = {};
-                        AWIN.Tracking = {};
-                        AWIN.Tracking.Sale = {};
-                        /*** Set your transaction parameters ***/
-                        AWIN.Tracking.Sale.amount = "1.00";
-                        AWIN.Tracking.Sale.channel = sChannel;
-                        AWIN.Tracking.Sale.orderRef = purchaseID;
-                        AWIN.Tracking.Sale.parts = "DEFAULT:350.00";
-                        AWIN.Tracking.Sale.currency = "BRL";
-                        AWIN.Tracking.Sale.voucher = "";
-                        AWIN.Tracking.Sale.test = "0";
-
-                        appendAwinMastertag();
-                    }
-                </script>
-
             </div>
 
             <div class="productImg">
